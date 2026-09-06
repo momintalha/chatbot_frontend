@@ -5,16 +5,10 @@ class ThemeIconbutton {
   ThemeIconbutton._();
 
   static IconButtonThemeData lightTheme = IconButtonThemeData(
-    style: IconButton.styleFrom(
-      iconSize: 18,
-      backgroundColor: AppColors.darkAccent,
-    ),
+    style: IconButton.styleFrom(backgroundColor: AppColors.darkAccent),
   );
 
   static IconButtonThemeData darkTheme = IconButtonThemeData(
-    style: IconButton.styleFrom(
-      iconSize: 18,
-      backgroundColor: AppColors.lightAccent,
-    ),
+    style: IconButton.styleFrom(backgroundColor: AppColors.lightAccent),
   );
 }

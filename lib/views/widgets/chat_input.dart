@@ -6,18 +6,26 @@ class ChatInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: _textEditingController,
-      cursorColor: Colors.blue,
-      cursorHeight: 14,
-      decoration: InputDecoration(
-        hintText: 'Ask ChatBot',
-        hintStyle: Theme.of(context).textTheme.labelSmall,
-        border: ShapedInputBorder(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadiusGeometry.circular(20),
-            side: BorderSide(color: Colors.black12, width: 0.5),
-          ),
+    return Container(
+      alignment: Alignment.center,
+      height: MediaQuery.of(context).size.height * 0.06,
+      decoration: BoxDecoration(
+        color: Colors.white54,
+        borderRadius: BorderRadius.circular(30),
+        boxShadow: [
+          BoxShadow(color: Colors.black12, blurRadius: 1, spreadRadius: 1),
+        ],
+      ),
+      child: TextField(
+        controller: _textEditingController,
+        style: Theme.of(context).textTheme.bodySmall,
+        expands: true,
+        cursorColor: Colors.blue,
+        cursorHeight: 20,
+        decoration: InputDecoration(
+          hintText: 'Ask ChatBot',
+          hintStyle: Theme.of(context).textTheme.labelSmall,
+          border: OutlineInputBorder(borderSide: BorderSide.none),
         ),
       ),
     );

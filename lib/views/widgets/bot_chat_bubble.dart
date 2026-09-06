@@ -7,6 +7,9 @@ class BotChatBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(padding: EdgeInsets.all(10.0), child: GptMarkdown(reply));
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 8.0),
+      child: GptMarkdown(reply),
+    );
   }
 }

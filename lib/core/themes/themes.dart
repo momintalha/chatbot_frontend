@@ -7,14 +7,14 @@ class Themes {
   Themes._();
   // Light Theme
   static ThemeData lightTheme = ThemeData(
-    colorScheme: ColorScheme.light(primaryContainer: AppColors.darkUserBubble),
+    colorScheme: ColorScheme.light(primaryContainer: AppColors.lightUserBubble),
     textTheme: ThemeText.lightTheme,
     iconButtonTheme: ThemeIconbutton.lightTheme,
   );
 
   // Dark Theme
   static ThemeData darkTheme = ThemeData(
-    colorScheme: ColorScheme.light(primaryContainer: AppColors.lightUserBubble),
+    colorScheme: ColorScheme.light(primaryContainer: AppColors.darkUserBubble),
     textTheme: ThemeText.darktTheme,
     iconButtonTheme: ThemeIconbutton.darkTheme,
   );

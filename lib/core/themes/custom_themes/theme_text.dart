@@ -9,12 +9,12 @@ class ThemeText {
     labelSmall: TextStyle(
       color: Colors.black54,
       fontFamily: 'GoogleSansText',
-      fontSize: 18,
+      fontSize: 16,
     ),
     bodySmall: TextStyle(
       color: AppColors.lightUserBubbleText,
       fontFamily: 'GoogleSansText',
-      fontSize: 20,
+      fontSize: 14,
     ),
     bodyMedium: TextStyle(
       color: AppColors.lightBotBubbleText,
@@ -28,12 +28,12 @@ class ThemeText {
     labelSmall: TextStyle(
       color: Colors.white54,
       fontFamily: 'GoogleSansText',
-      fontSize: 18,
+      fontSize: 16,
     ),
     bodySmall: TextStyle(
       color: AppColors.darkUserBubbleText,
       fontFamily: 'GoogleSansText',
-      fontSize: 20,
+      fontSize: 14,
     ),
     bodyMedium: TextStyle(
       color: AppColors.darkBotBubbleText,
