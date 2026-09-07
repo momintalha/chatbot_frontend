@@ -8,7 +8,7 @@ class ThemeText {
   static TextTheme lightTheme = TextTheme(
     labelSmall: TextStyle(
       color: Colors.black54,
-      fontFamily: 'GoogleSansText',
+      fontFamily: 'GoogleSans',
       fontSize: 16,
     ),
     bodySmall: TextStyle(
@@ -27,7 +27,7 @@ class ThemeText {
   static TextTheme darktTheme = TextTheme(
     labelSmall: TextStyle(
       color: Colors.white54,
-      fontFamily: 'GoogleSansText',
+      fontFamily: 'GoogleSans',
       fontSize: 16,
     ),
     bodySmall: TextStyle(

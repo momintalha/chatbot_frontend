@@ -1,5 +1,6 @@
 import 'package:chatbot_frontend/viewmodels/bloc/chat_bloc.dart';
 import 'package:chatbot_frontend/viewmodels/bloc/chat_event.dart';
+import 'package:chatbot_frontend/views/screens/raw_reply.dart';
 import 'package:chatbot_frontend/views/widgets/bot_chat_bubble.dart';
 import 'package:chatbot_frontend/views/widgets/chat_input.dart';
 import 'package:chatbot_frontend/views/widgets/send_button.dart';
@@ -19,7 +20,7 @@ class ChatScreen extends StatelessWidget {
       body: BlocBuilder<ChatBloc, ChatState?>(
         builder: (context, state) {
           return Container(
-            color: Colors.black12,
+            color: Colors.white,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -28,15 +29,21 @@ class ChatScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 8.0),
                     itemCount: 1,
                     itemBuilder: (context, index) {
-                      return UserChatBubble(
-                        'lafkoe gefdafl;dkf oewfi owpfe gweopg eopg rigjorg ewopfi ewofpe wfei fope fgopeg foiprg ioreg?',
+                      return Column(
+                        spacing: 10,
+                        children: [
+                          UserChatBubble(
+                            'lafkoe gefdafl;dkf oewfi owpfe gweopg eopg rigjorg ewopfi ewofpe wfei fope fgopeg foiprg ioreg?',
+                          ),
+                          BotChatBubble(reply2),
+                        ],
                       );
                     },
                   ),
                 ),
                 Container(
                   padding: EdgeInsets.all(8),
-                  decoration: BoxDecoration(color: Colors.white),
+                  decoration: BoxDecoration(color: Colors.white54),
                   child: Row(
                     spacing: 5,
                     children: [

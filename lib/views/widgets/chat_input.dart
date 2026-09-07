@@ -19,7 +19,6 @@ class ChatInput extends StatelessWidget {
       child: TextField(
         controller: _textEditingController,
         style: Theme.of(context).textTheme.bodySmall,
-        expands: true,
         cursorColor: Colors.blue,
         cursorHeight: 20,
         decoration: InputDecoration(
