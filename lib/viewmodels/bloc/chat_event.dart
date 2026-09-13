@@ -5,7 +5,6 @@ class SendMessage extends ChatEvent {
   SendMessage(this.query);
 }
 
-class RecieveMessage extends ChatEvent {
-  String reply;
-  RecieveMessage(this.reply);
-}
+class NewChat extends ChatEvent{}
+class DeleteChat extends ChatEvent{}
+class LoadChat extends ChatEvent{}

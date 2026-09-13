@@ -5,7 +5,8 @@ import 'package:gpt_markdown/gpt_markdown.dart';
 
 class BotChatBubble extends StatelessWidget {
   final String reply;
-  const BotChatBubble(this.reply, {super.key});
+  final bool isBot;
+  const BotChatBubble(this.reply, this.isBot, {super.key});
 
   @override
   Widget build(BuildContext context) {
