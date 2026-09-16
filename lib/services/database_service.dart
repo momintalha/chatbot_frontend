@@ -70,7 +70,14 @@ class DatabaseService {
     );
   }
 
-  Future<List<Map<String, dynamic>>?> fetch({required int? id}) async {
+  Future<List<Map<String, dynamic>>?> fetchChats() async {
+    final db = await _getDb();
+    final data = await db?.rawQuery('''SELECT id, title FROM chat 
+      ORDER BY id ASC''');
+    return data;
+  }
+
+  Future<List<Map<String, dynamic>>?> fetchChat({required int? id}) async {
     final db = await _getDb();
     final data = await db?.rawQuery(
       '''SELECT * FROM message 
@@ -81,12 +88,13 @@ class DatabaseService {
     return data;
   }
 
-  Future<void> delete({required int? id}) async {
+  Future<int?> delete({required int? id}) async {
     final db = await _getDb();
-    await db?.rawDelete(
+    final int? count = await db?.rawDelete(
       '''DELETE FROM chat 
     WHERE id = ?''',
       [id],
     );
+    return count;
   }
 }

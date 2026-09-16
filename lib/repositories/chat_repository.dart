@@ -41,12 +41,18 @@ class ChatRepository {
     );
   }
 
-  Future<List<Map<String, dynamic>>> loadChat(int? chatid) async {
-    final data = await _chatDb.fetch(id: chatid);
+  Future<List<Map<String, dynamic>>> openChat(int? chatid) async {
+    final data = await _chatDb.fetchChat(id: chatid);
     return data ?? [];
   }
 
-  Future<void> deleteChat(int? chatid) async {
-    await _chatDb.delete(id: chatid);
+  Future<List<Map<String, dynamic>>> loadChat() async {
+    final data = await _chatDb.fetchChats();
+    return data ?? [];
+  }
+
+  Future<int> deleteChat(int? chatid) async {
+    final int? count = await _chatDb.delete(id: chatid);
+    return count ?? 0;
   }
 }

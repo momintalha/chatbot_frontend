@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 class UserChatBubble extends StatelessWidget {
   final String query;
-  final bool isUser;
-  const UserChatBubble(this.query, this.isUser, {super.key});
+  const UserChatBubble(this.query, {super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:chatbot_frontend/viewmodels/bloc/chat_bloc.dart';
 import 'package:chatbot_frontend/viewmodels/bloc/chat_event.dart';
+import 'package:chatbot_frontend/views/screens/chat_history_screen.dart';
 import 'package:chatbot_frontend/views/widgets/bot_chat_bubble.dart';
 import 'package:chatbot_frontend/views/widgets/chat_input.dart';
 import 'package:chatbot_frontend/views/widgets/send_button.dart';
@@ -16,8 +17,13 @@ class ChatScreen extends StatelessWidget {
     final TextEditingController textEditingController = TextEditingController();
     return Scaffold(
       appBar: AppBar(title: const Text('ChatBot')),
+      drawer: ChatHistoryScreen(),
+      onDrawerChanged: (isOpened) {
+        context.read<ChatBloc>().add(LoadChat());
+      },
       body: BlocBuilder<ChatBloc, ChatState>(
         builder: (context, state) {
+          final historyChat = (state is LoadedHistory) ? state.history : [];
           return Container(
             color: Colors.white,
             child: Column(
@@ -26,23 +32,14 @@ class ChatScreen extends StatelessWidget {
                 Expanded(
                   child: ListView.builder(
                     padding: EdgeInsets.symmetric(horizontal: 8.0),
-                    itemCount: state.chat.length,
+                    itemCount: (historyChat.isNotEmpty)
+                        ? historyChat.length
+                        : state.chat.length,
                     itemBuilder: (context, index) {
-                      final messages = state.chat[index];
-
-                      if (state is LoadingState) {
-                        return Center(
-                          child: CircularProgressIndicator(
-                            backgroundColor: Colors.black12,
-                            color: Colors.blue,
-                          ),
-                        );
-                      }
-
-                      if (state is ResponseState) {
-                        return (messages.role == 'user')
-                            ? UserChatBubble(state.chat[index].message!, true)
-                            : BotChatBubble(state.chat[index].message!, true);
+                      if (historyChat.isNotEmpty) {
+                        return (historyChat[index]['role'] == 'user')
+                            ? UserChatBubble(historyChat[index]['content'])
+                            : BotChatBubble(historyChat[index]['content']);
                       }
 
                       return Container();

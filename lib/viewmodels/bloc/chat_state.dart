@@ -17,3 +17,13 @@ class ResponseError extends ChatState {
   final String error;
   ResponseError(this.error);
 }
+
+class LoadedHistory extends ChatState {
+  final List<Map<String, dynamic>> history;
+  LoadedHistory(this.history);
+}
+
+class DeleteChatState extends ChatState {
+  final bool isDeleted;
+  DeleteChatState(this.isDeleted);
+}

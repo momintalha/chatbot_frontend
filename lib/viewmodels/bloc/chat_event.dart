@@ -5,6 +5,13 @@ class SendMessage extends ChatEvent {
   SendMessage(this.query);
 }
 
-class NewChat extends ChatEvent{}
-class DeleteChat extends ChatEvent{}
-class LoadChat extends ChatEvent{}
+class NewChat extends ChatEvent {}
+
+class DeleteChat extends ChatEvent {}
+
+class LoadChat extends ChatEvent {}
+
+class OpenChat extends ChatEvent {
+  int? id;
+  OpenChat(this.id);
+}

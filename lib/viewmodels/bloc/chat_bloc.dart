@@ -45,7 +45,19 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
       emit(ResponseState(chat: [...state.chat, message]));
     });
 
-    on<LoadChat>((event, emit) {});
-    on<DeleteChat>((event, emit) {});
+    on<LoadChat>((event, emit) async {
+      final chats = await repository.loadChat();
+      emit(LoadedHistory(chats));
+    });
+
+    on<OpenChat>((event, emit) async {
+      final chat = await repository.openChat(chatid);
+      emit(LoadedHistory(chat));
+    });
+
+    on<DeleteChat>((event, emit) async {
+      final int del = await repository.deleteChat(chatid);
+      emit(DeleteChatState(del > 0));
+    });
   }
 }
