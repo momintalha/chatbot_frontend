@@ -7,8 +7,6 @@ abstract class ChatState {
 
 class InitialState extends ChatState {}
 
-class LoadingState extends ChatState {}
-
 class ResponseState extends ChatState {
   ResponseState({required super.chat});
 }
@@ -18,9 +16,14 @@ class ResponseError extends ChatState {
   ResponseError(this.error);
 }
 
-class LoadedHistory extends ChatState {
+class OpenHistoryChat extends ChatState {
   final List<Map<String, dynamic>> history;
-  LoadedHistory(this.history);
+  OpenHistoryChat(this.history);
+}
+
+class LoadHistoryChat extends ChatState {
+  final List<Map<String, dynamic>> history;
+  LoadHistoryChat(this.history);
 }
 
 class DeleteChatState extends ChatState {

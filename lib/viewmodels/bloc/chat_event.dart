@@ -7,11 +7,14 @@ class SendMessage extends ChatEvent {
 
 class NewChat extends ChatEvent {}
 
-class DeleteChat extends ChatEvent {}
+class DeleteChat extends ChatEvent {
+  final int? id;
+  DeleteChat(this.id);
+}
 
 class LoadChat extends ChatEvent {}
 
 class OpenChat extends ChatEvent {
-  int? id;
+  final int? id;
   OpenChat(this.id);
 }

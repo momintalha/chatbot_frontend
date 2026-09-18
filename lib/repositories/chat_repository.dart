@@ -7,6 +7,7 @@ class ChatRepository {
 
   Future<String?> sendMessage(String query, int? chatid) async {
     debugPrint('in repository');
+
     // add user query to database
     await _chatDb.insert(
       chatid: chatid,
@@ -41,13 +42,13 @@ class ChatRepository {
     );
   }
 
-  Future<List<Map<String, dynamic>>> openChat(int? chatid) async {
-    final data = await _chatDb.fetchChat(id: chatid);
+  Future<List<Map<String, dynamic>>> loadChat() async {
+    final data = await _chatDb.fetchChat();
     return data ?? [];
   }
 
-  Future<List<Map<String, dynamic>>> loadChat() async {
-    final data = await _chatDb.fetchChats();
+  Future<List<Map<String, dynamic>>> openChat(int? chatid) async {
+    final data = await _chatDb.fetchMessage(id: chatid);
     return data ?? [];
   }
 

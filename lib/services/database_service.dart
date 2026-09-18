@@ -70,17 +70,17 @@ class DatabaseService {
     );
   }
 
-  Future<List<Map<String, dynamic>>?> fetchChats() async {
+  Future<List<Map<String, dynamic>>?> fetchChat() async {
     final db = await _getDb();
-    final data = await db?.rawQuery('''SELECT id, title FROM chat 
+    final data = await db?.rawQuery('''SELECT * FROM chat 
       ORDER BY id ASC''');
     return data;
   }
 
-  Future<List<Map<String, dynamic>>?> fetchChat({required int? id}) async {
+  Future<List<Map<String, dynamic>>?> fetchMessage({required int? id}) async {
     final db = await _getDb();
     final data = await db?.rawQuery(
-      '''SELECT * FROM message 
+      '''SELECT * FROM message
       WHERE chatid = ? 
       ORDER BY id ASC''',
       [id],

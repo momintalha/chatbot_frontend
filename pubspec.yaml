@@ -44,6 +44,7 @@ dependencies:
   gpt_markdown: ^1.2.1
   http: ^1.6.0
   flutter_highlight: ^0.7.0
+  lottie: ^3.6.1
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +72,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/fonts/
+    - assets/animations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
